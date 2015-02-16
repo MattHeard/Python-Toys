@@ -1,4 +1,6 @@
-# [2015-02-11] Challenge #201 [Practical Exercise] Get Your Priorities Right!
+# Challenge #201: Get Your Priorities Right!
+
+[http://www.reddit.com/r/dailyprogrammer/comments/2vkwgb/20150211_challenge_201_practical_exercise_get/](http://www.reddit.com/r/dailyprogrammer/comments/2vkwgb/20150211_challenge_201_practical_exercise_get/)
 
 ## (Practical Exercise): Get Your Priorities Right!
 
