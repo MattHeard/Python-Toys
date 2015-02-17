@@ -35,6 +35,19 @@ class TestDoublePriorityQueue(unittest.TestCase):
         expected = 2
         actual = dpq.Count()
         self.assertEqual(expected, actual)
+
+    def test_popQueueOnce(self):
+        dpq = DoublePriorityQueue()
+        string = "Alice"
+        priorityA = 1.23
+        priorityB = 4.56
+        dpq.Enqueue(string, priorityA, priorityB)
+        expected = 1
+        actual = dpq.Count()
+        self.assertEqual(expected, actual)
+        expected = ("Alice", 1.23, 4.56)
+        actual = dpq.Dequeue()
+        self.assertEqual(expected, actual)
     
 if __name__ == "__main__":
     unittest.main()

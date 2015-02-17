@@ -12,6 +12,9 @@ class DoublePriorityQueue:
         node = Node(val, priorityA, priorityB)
         self.push(node)
 
+    def Dequeue(self):
+        return self.popQueue()
+
     def DequeueA(self):
         return self.popPriorityA()
 
@@ -42,6 +45,15 @@ class DoublePriorityQueue:
                     break
         self.count += 1
 
+    def popQueue(self):
+        if self.count > 0:
+            node = self.queue.popleft()
+            self.priorityAList.remove(node)
+            self.priorityBList.remove(node)
+            return node.asTuple()
+        else:
+            return None
+
     def popPriorityA(self):
         pass
 
@@ -54,3 +66,6 @@ class Node:
         self.val = val
         self.priorityA = priorityA
         self.priorityB = priorityB
+
+    def asTuple(self):
+        return (self.val, self.priorityA, self.priorityB)
