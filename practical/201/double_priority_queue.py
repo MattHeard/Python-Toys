@@ -1,7 +1,12 @@
+from collections import deque
+
 class DoublePriorityQueue:
 
     def __init__(self):
         self.count = 0
+        self.queue = deque()
+        self.priorityAList = []
+        self.priorityBList = []
 
     def Enqueue(self, val, priorityA, priorityB):
         node = Node(val, priorityA, priorityB)
@@ -20,11 +25,22 @@ class DoublePriorityQueue:
         pass
 
     def push(self, node):
+        self.queue.append(node)
         if self.Count() is 0:
-            self.first = node
-            self.topPriorityA = node
-            self.topPriorityB = node
-            self.count += 1
+            self.priorityAList.append(node)
+            self.priorityBList.append(node)
+        else:
+            pos = 0
+            for curr in self.priorityAList:
+                if node.priorityA > curr.priorityA:
+                    self.priorityAList.insert(pos, node)
+                    break
+            pos = 0
+            for curr in self.priorityBList:
+                if node.priorityB > curr.priorityB:
+                    self.priorityBList.insert(pos, node)
+                    break
+        self.count += 1
 
     def popPriorityA(self):
         pass
@@ -35,4 +51,6 @@ class DoublePriorityQueue:
 class Node:
 
     def __init__(self, val, priorityA, priorityB):
-        pass
+        self.val = val
+        self.priorityA = priorityA
+        self.priorityB = priorityB
