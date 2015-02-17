@@ -34,15 +34,23 @@ class DoublePriorityQueue:
             self.priorityBList.append(node)
         else:
             pos = 0
+            isAdded = False
             for curr in self.priorityAList:
                 if node.priorityA > curr.priorityA:
                     self.priorityAList.insert(pos, node)
+                    isAdded = True
                     break
+            if isAdded == False:
+                self.priorityAList.append(node)
+            isAdded = False
             pos = 0
             for curr in self.priorityBList:
                 if node.priorityB > curr.priorityB:
                     self.priorityBList.insert(pos, node)
+                    isAdded = True
                     break
+            if isAdded == False:
+                self.priorityBList.append(node)
         self.count += 1
 
     def popQueue(self):
@@ -50,6 +58,7 @@ class DoublePriorityQueue:
             node = self.queue.popleft()
             self.priorityAList.remove(node)
             self.priorityBList.remove(node)
+            self.count -= 1
             return node.asTuple()
         else:
             return None
