@@ -5,14 +5,17 @@ import unittest
 from double_priority_queue import DoublePriorityQueue
 
 class TestDoublePriorityQueue(unittest.TestCase):
+    """The test suite for DoublePriorityQueue."""
 
     def test_countEmpty(self):
+        """Test counting an empty DPQ."""
         dpq = DoublePriorityQueue()
         expected = 0
         actual = dpq.Count()
         self.assertEqual(expected, actual)
 
     def test_countOneNode(self):
+        """Test counting a DPQ with one entry."""
         dpq = DoublePriorityQueue()
         string = "Alice"
         priorityA = 1.23
@@ -23,6 +26,7 @@ class TestDoublePriorityQueue(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_countTwoNodes(self):
+        """Test counting a DPQ with two entries."""
         dpq = DoublePriorityQueue()
         string1 = "Alice"
         priorityA1 = 1.23
@@ -37,6 +41,7 @@ class TestDoublePriorityQueue(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_popQueueOnce(self):
+        """Test popping the queue in a DPQ once."""
         dpq = DoublePriorityQueue()
         string = "Alice"
         priorityA = 1.23
@@ -53,6 +58,7 @@ class TestDoublePriorityQueue(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_popQueueTwice(self):
+        """Test popping the queue in a DPQ twice."""
         dpq = DoublePriorityQueue()
         string1 = "Alice"
         priorityA1 = 1.23
@@ -82,6 +88,7 @@ class TestDoublePriorityQueue(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_popPriorityQueueAOnce(self):
+        """Test popping the first priority queue in a DPQ once."""
         dpq = DoublePriorityQueue()
         string = "Alice"
         priorityA = 1.23
@@ -98,6 +105,7 @@ class TestDoublePriorityQueue(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_popPriorityQueueATwice(self):
+        """Test popping the first priority queue in a DPQ twice."""
         dpq = DoublePriorityQueue()
         string1 = "Alice"
         priorityA1 = 1.23
@@ -127,6 +135,7 @@ class TestDoublePriorityQueue(unittest.TestCase):
         self.assertEqual(expected, actual)
     
     def test_popPriorityQueueBOnce(self):
+        """Test popping the second priority queue in a DPQ once."""
         dpq = DoublePriorityQueue()
         string = "Alice"
         priorityA = 1.23
@@ -143,6 +152,7 @@ class TestDoublePriorityQueue(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_popPriorityQueueBTwice(self):
+        """Test popping the second priority queue in a DPQ twice."""
         dpq = DoublePriorityQueue()
         string1 = "Alice"
         priorityA1 = 1.23
@@ -172,6 +182,7 @@ class TestDoublePriorityQueue(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_clear(self):
+        """Test clearing a DPQ."""
         dpq = DoublePriorityQueue()
         string1 = "Alice"
         priorityA1 = 1.23
@@ -193,4 +204,5 @@ class TestDoublePriorityQueue(unittest.TestCase):
         self.assertEqual(expected, actual)
 
 if __name__ == "__main__":
+    """Run the unit tests."""
     unittest.main()
