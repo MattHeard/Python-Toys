@@ -74,7 +74,14 @@ class DoublePriorityQueue:
             return None
 
     def popPriorityB(self):
-        pass
+        if self.count > 0:
+            node = self.priorityBList.pop(0)
+            self.queue.remove(node)
+            self.priorityAList.remove(node)
+            self.count -= 1
+            return node.asTuple()
+        else:
+            return None
 
 class Node:
 
