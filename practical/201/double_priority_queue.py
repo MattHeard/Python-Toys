@@ -27,7 +27,10 @@ class DoublePriorityQueue:
         return self.count
 
     def Clear(self):
-        pass
+        self.queue.clear()
+        self.priorityAList.clear()
+        self.priorityBList.clear()
+        self.count = 0
 
     def push(self, node):
         self.queue.append(node)
