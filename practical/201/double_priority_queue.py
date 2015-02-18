@@ -1,6 +1,8 @@
-from collections import deque
+from collections import deque, namedtuple
 
 class DoublePriorityQueue:
+
+    Node = namedtuple('Node', ['val', 'priorityA', 'priorityB'])
 
     def __init__(self):
         self.count = 0
@@ -9,7 +11,7 @@ class DoublePriorityQueue:
         self.priorityBList = []
 
     def Enqueue(self, val, priorityA, priorityB):
-        node = Node(val, priorityA, priorityB)
+        node = self.Node(val, priorityA, priorityB)
         self.push(node)
 
     def Dequeue(self):
@@ -59,7 +61,7 @@ class DoublePriorityQueue:
             self.priorityAList.remove(node)
             self.priorityBList.remove(node)
             self.count -= 1
-            return node.asTuple()
+            return node
         else:
             return None
 
@@ -69,7 +71,7 @@ class DoublePriorityQueue:
             self.queue.remove(node)
             self.priorityBList.remove(node)
             self.count -= 1
-            return node.asTuple()
+            return node
         else:
             return None
 
@@ -79,16 +81,6 @@ class DoublePriorityQueue:
             self.queue.remove(node)
             self.priorityAList.remove(node)
             self.count -= 1
-            return node.asTuple()
+            return node
         else:
             return None
-
-class Node:
-
-    def __init__(self, val, priorityA, priorityB):
-        self.val = val
-        self.priorityA = priorityA
-        self.priorityB = priorityB
-
-    def asTuple(self):
-        return (self.val, self.priorityA, self.priorityB)
