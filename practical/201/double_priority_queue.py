@@ -11,21 +11,19 @@ class DoublePriorityQueue:
 
     def __init__(self):
         """Initialise the double priority queue."""
-        self.count = 0
         self.queue = deque()
         self.priorityAList = []
         self.priorityBList = []
 
     def Count(self):
         """Return the number of entries."""
-        return self.count
+        return len(self.queue)
 
     def Clear(self):
         """Remove all entries from the double priority queue."""
         self.queue.clear()
         self.priorityAList.clear()
         self.priorityBList.clear()
-        self.count = 0
 
     def pushOntoPriorityAList(self, node):
         """Push an entry onto priority list A."""
@@ -61,37 +59,33 @@ class DoublePriorityQueue:
         self.queue.append(node)
         self.pushOntoPriorityAList(node)
         self.pushOntoPriorityBList(node)
-        self.count += 1
 
     def Dequeue(self):
         """Pop off the entry that was pushed on the earliest."""
-        if self.count > 0:
+        if len(self.queue) > 0:
             node = self.queue.popleft()
             self.priorityAList.remove(node)
             self.priorityBList.remove(node)
-            self.count -= 1
             return node
         else:
             return None
 
     def DequeueA(self):
         """Pop off the entry with the highest priority A."""
-        if self.count > 0:
+        if len(self.queue) > 0:
             node = self.priorityAList.pop(0)
             self.queue.remove(node)
             self.priorityBList.remove(node)
-            self.count -= 1
             return node
         else:
             return None
 
     def DequeueB(self):
         """Pop off the entry with the highest priority B."""
-        if self.count > 0:
+        if len(self.queue) > 0:
             node = self.priorityBList.pop(0)
             self.queue.remove(node)
             self.priorityAList.remove(node)
-            self.count -= 1
             return node
         else:
             return None
