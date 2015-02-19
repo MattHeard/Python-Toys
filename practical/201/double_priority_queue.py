@@ -36,6 +36,8 @@ class DoublePriorityQueue:
                 self.priorityAList.insert(pos, node)
                 isAdded = True
                 break
+            else:
+                pos += 1
         if isAdded == False:
             self.priorityAList.append(node)
 
@@ -48,6 +50,8 @@ class DoublePriorityQueue:
                 self.priorityBList.insert(pos, node)
                 isAdded = True
                 break
+            else:
+                pos += 1
         if isAdded == False:
             self.priorityBList.append(node)
 
