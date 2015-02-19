@@ -268,7 +268,7 @@ class TestDoublePriorityQueue(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_popPriorityQueueBThrice(self):
-        """Test popping the first priority queue in a DPQ thrice."""
+        """Test popping the second priority queue in a DPQ thrice."""
         dpq = DoublePriorityQueue()
         string1 = "Alice"
         priorityA1 = 1.23
